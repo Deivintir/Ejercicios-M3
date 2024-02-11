@@ -54,3 +54,73 @@ console.log(userAge());
  * • Comprueba su correcta ejecución en el navegador. */
 /**---------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 /**---------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+/**• En el archivo main.ts, declara una interfaz con propiedades comunes
+para objetos de una entidad de formulario de inscripción, con sus
+correspondientes tipos. */
+interface Usuario {
+    nombre:string;
+    apellidos:string;
+    cumpleaños:Date;
+}
+/**• A continuación, declara una clase que implemente la interfaz y las propiedades adicionales para una entidad de formulario de 
+ * inscripción específico de cursos o formación. */
+class Alumn implements Usuario{
+    nombre:string;
+    apellidos:string;
+    cumpleaños:Date;
+    curso:string;
+    level:number;
+/**• Añade a la clase el método constructor para inicializar los valores de
+las propiedades. */
+    constructor(nombre:string,apellidos:string,cumpleaños:Date,curso:string,level:number){
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.cumpleaños = cumpleaños;
+        this.curso = curso;
+        this.level = level;
+    }
+/**• Añade a la clase los métodos para establecer y obtener los valores
+de esas propiedades. */
+    setNombre(nombre:string){
+        this.nombre = nombre;
+        return 'El nombre de usuario fue modificado.';
+    }
+    getNombre(){
+        return this.nombre;
+    }
+    setApellidos(apellidos:string){
+        this.apellidos = apellidos;
+        return 'Los apellidos del usuario han sido modificados.';
+    }
+    getApellidos(){
+        return this.apellidos;
+    }
+    setCumpleaños(cumpleaños:Date){
+        this.cumpleaños = cumpleaños;
+        return 'La fecha de cumpleaños del ususario fue modificada.'
+    }
+    getCumpleaños(){
+        return this.cumpleaños;
+    }
+    setCurso(curso:string){
+        this.curso = curso;
+        return 'Enhorabuena te has inscrito en un curso.';
+    }
+    getCurso(){
+        return 'estas inscrito en: ' + this.curso;
+    }
+    setLevel(level:number){
+        this.level = level;
+        return 'El nivel del usuario ha cambiado.';
+    }
+    getLevel(){
+        return 'Nivel: ' + this.level;
+    }
+}
+/**• Instancia un objeto de la clase en una variable con unos valores de inicialización. */
+let newAlumn = new Alumn('David', 'Rodríguez Terrón', new Date('1984-10-29'), 'Full-Stack', 1);
+/**• Imprime por consola con “console.log()” varios ejemplos de invocación de los métodos. */
+console.log(newAlumn.getCumpleaños());
+console.log(newAlumn.level);
+console.log(newAlumn);
+console.log(newAlumn.getLevel());
